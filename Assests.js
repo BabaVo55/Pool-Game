@@ -1,12 +1,12 @@
 let sprites = {
-    background: null
+    // background: null
 };
 
 let assetsStillLoading = 0;
 
 function assetsLoadingLoop(callback){
     if (assetsStillLoading){
-        requestAnimationFrame(assetsLoadingLoop.bind(this.callback))
+        requestAnimationFrame(assetsLoadingLoop.bind(this, callback))
     } else {
         callback();
     }
@@ -27,4 +27,7 @@ function loadAssets(callback){
     }
     sprites.background = loadSprite('spr_background4.png')
     sprites.stick = loadSprite('spr_stick.png')
+
+    assetsLoadingLoop(callback);
 }
+
