@@ -15,3 +15,104 @@
         </script>
     </body>
 </html> 
+<!-- 
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simplified Pool Game</title>
+  <style>
+    canvas { background: #111; display: block; margin: auto; }
+  </style>
+</head>
+<body>
+  <canvas id="screen" width="1500" height="800"></canvas>
+
+  <script>
+    // Global canvas
+    const canvas = document.getElementById("screen");
+    const ctx = canvas.getContext("2d");
+
+    // Sprites holder
+    const sprites = {};
+
+    // Game object: stick
+    class Stick {
+      constructor() {
+        this.position = { x: 0, y: 200 };
+      }
+
+      update() {
+        this.position.x += 2;
+      }
+
+      draw() {
+        ctx.drawImage(sprites.stick, this.position.x, this.position.y);
+      }
+    }
+
+    // Game world
+    class GameWorld {
+      constructor() {
+        this.stick = new Stick();
+      }
+
+      update() {
+        this.stick.update();
+      }
+
+      draw() {
+        ctx.drawImage(sprites.background, 0, 0);
+        this.stick.draw();
+      }
+    }
+
+    // Game engine
+    class Game {
+      constructor() {
+        this.gameWorld = null;
+      }
+
+      init() {
+        this.gameWorld = new GameWorld();
+      }
+
+      start = () => {
+        this.init();
+        this.mainLoop();
+      }
+
+      mainLoop = () => {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        this.gameWorld.update();
+        this.gameWorld.draw();
+        requestAnimationFrame(this.mainLoop);
+      }
+    }
+
+    // Load assets
+    function loadAssets(callback) {
+      let assetsToLoad = 2;
+
+      function onAssetLoad() {
+        assetsToLoad--;
+        if (assetsToLoad === 0) callback();
+      }
+
+      const background = new Image();
+      background.src = "./assets/sprites/spr_background4.png"; // Replace with your image path
+      background.onload = onAssetLoad;
+
+      const stick = new Image();
+      stick.src = "./assets/sprites/spr_stick.png"; // Replace with your stick image
+      stick.onload = onAssetLoad;
+
+      sprites.background = background;
+      sprites.stick = stick;
+    }
+
+    // Start game
+    const game = new Game();
+    loadAssets(game.start);
+  </script>
+</body>
+</html> -->
