@@ -30,4 +30,3 @@ function loadAssets(callback){
 
     assetsLoadingLoop(callback);
 }
-
