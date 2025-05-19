@@ -5,18 +5,18 @@ function Game(){
 Game.prototype.init = function () {
 
     this.gameWorld = new GameWorld();
+    
 }
 
 Game.prototype.start = function () {
 
     // Doesnt work??
     // this.init()
-
     // this.mainLoop()
 
+    
     // This Does though?
     PoolGame.init()
-
     PoolGame.mainLoop()
 
 }

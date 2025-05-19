@@ -1,5 +1,5 @@
 let sprites = {
-    // background: null
+    
 };
 
 let assetsStillLoading = 0;
