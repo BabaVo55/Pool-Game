@@ -19,19 +19,21 @@
 // clash and the stick is frozen since it goes back and forth between the two
 // pixels - 199 - 200
 
-// Below the logic is governed 
-function Stick() {
-    // this.position = { x: 0, y: 400 };
 
-    this.position = new Vector2(400, 400)
-    this.origin = new Vector2(500, 10)
+const STICK_ORIGIN = new Vector2(970, 11)
+// Below the logic is governed 
+function Stick(position) {
+    // this.position = { x: 0, y: 400 };
+    this.position = position
+    // this.position = new Vector2(400, 400)
+    // this.origin = new Vector2(500, 10)
     // this.direction = 1; // 1 for right, -1 for left
 }
 
 Stick.prototype.update = function () {
     // this.position.x += this.direction;
-    this.position = Mouse.position
-    if (Mouse.left.pressed) console.log('Pressed L')
+    // this.position = Mouse.position
+    // if (Mouse.left.pressed) console.log('Pressed L')
 
     // Change direction at bounds
     // if (this.position.x >= 150 || this.position.x <= 0) {
@@ -40,7 +42,7 @@ Stick.prototype.update = function () {
 };
 
 Stick.prototype.draw = function () {
-    Canvas.drawImage(sprites.stick, this.position, this.origin);
+    Canvas.drawImage(sprites.stick, this.position, /*this.origin*/ STICK_ORIGIN);
 };
 
 
