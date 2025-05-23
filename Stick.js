@@ -27,18 +27,19 @@ function Stick(position) {
     this.position = position
     // this.position = new Vector2(400, 400)
     // this.origin = new Vector2(500, 10)
-    // this.direction = 1; // 1 for right, -1 for left
+    this.direction = 1; // 1 for right, -1 for left
 }
 
 Stick.prototype.update = function () {
-    // this.position.x += this.direction;
     // this.position = Mouse.position
     // if (Mouse.left.pressed) console.log('Pressed L')
+    
+    this.position.x += this.direction;
 
     // Change direction at bounds
-    // if (this.position.x >= 150 || this.position.x <= 0) {
-    //     this.direction *= -1; // Flip direction
-    // }
+    if (this.position.x >= ballsVector) {
+        this.direction *= -1; // Flip direction
+    }
 };
 
 Stick.prototype.draw = function () {
