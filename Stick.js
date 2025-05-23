@@ -26,12 +26,14 @@ function Stick() {
 }
 
 Stick.prototype.update = function () {
-    this.position.x += this.direction;
+    // this.position.x += this.direction;
+    this.position = Mouse.position
+    if (Mouse.left.pressed) console.log('Pressed L')
 
     // Change direction at bounds
-    if (this.position.x >= 150 || this.position.x <= 0) {
-        this.direction *= -1; // Flip direction
-    }
+    // if (this.position.x >= 150 || this.position.x <= 0) {
+    //     this.direction *= -1; // Flip direction
+    // }
 };
 
 Stick.prototype.draw = function () {
