@@ -28,24 +28,37 @@ function Stick(position) {
     // this.position = new Vector2(400, 400)
     // this.origin = new Vector2(500, 10)
     this.direction = 1; // 1 for right, -1 for left
+    this.rotation = 0;
 }
 
 Stick.prototype.update = function () {
     // this.position = Mouse.position
     // if (Mouse.left.pressed) console.log('Pressed L')
     
-    this.position.x += this.direction;
+    // this.position.x += this.direction;
 
     // Change direction at bounds
-    if (this.position.x >= ballsVector) {
-        this.direction *= -1; // Flip direction
-    }
+    // if (this.position.x >= ballsVector + 100) {
+    //     this.direction *= -1; // Flip direction
+    // }
+
+    this.updateRotation();
+
 };
 
 Stick.prototype.draw = function () {
-    Canvas.drawImage(sprites.stick, this.position, /*this.origin*/ STICK_ORIGIN);
+    Canvas.drawImage(sprites.stick, this.position, /*this.origin*/ STICK_ORIGIN, this.rotation);
 };
 
+Stick.prototype.updateRotation = function () {
+    let opposite = Mouse.position.y - this.position.y;
+    let adjacent = Mouse.position.x - this.position.x;
+
+    this.rotation = Math.atan2(opposite, adjacent);
+
+
+
+}
 
 
 // class Stick {
