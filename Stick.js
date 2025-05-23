@@ -21,8 +21,11 @@
 
 // Below the logic is governed 
 function Stick() {
-    this.position = { x: 0, y: 400 };
-    this.direction = 1; // 1 for right, -1 for left
+    // this.position = { x: 0, y: 400 };
+
+    this.position = new Vector2(400, 400)
+    this.origin = new Vector2(500, 10)
+    // this.direction = 1; // 1 for right, -1 for left
 }
 
 Stick.prototype.update = function () {
@@ -37,7 +40,7 @@ Stick.prototype.update = function () {
 };
 
 Stick.prototype.draw = function () {
-    Canvas.drawImage(sprites.stick, this.position);
+    Canvas.drawImage(sprites.stick, this.position, this.origin);
 };
 
 
