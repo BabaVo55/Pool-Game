@@ -1,10 +1,11 @@
 const BALL_ORIGIN = new Vector2(25, 25);
 
-function Ball(position) {
-    this.position = position;
+function Ball() {
+    this.position = {x: 0, y: 0};
     // Wow it really did just work like that
     addEventListener('mousemove', (e) => {
-    this.position = e
+    this.position.x = e.pageX
+    this.position.y = e.pageY
 })
 }
 
