@@ -5,6 +5,7 @@ function handleMouseMove(evt){
     Mouse.position = new Vector2(x, y);
 }
 
+
 function handleMouseDown(evt){
     //when you add this, i automatically changes the NORMAL function into a CONSTRUCTOR function.
     // this.test = test
@@ -68,6 +69,9 @@ MouseHandler.prototype.reset = function(){
 
 let Mouse = new MouseHandler()
 
+addEventListener('mousedown', (e) => {
+    console.log(e)
+})
 
 
 // // Class to track button state (pressed once vs. held down)
