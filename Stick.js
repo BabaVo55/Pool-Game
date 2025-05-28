@@ -1,11 +1,13 @@
 const STICK_ORIGIN = new Vector2(970, 11)
+const STICK_SHOT_ORIGIN = new Vector2(950, 11);
 // Below the logic is governed 
-function Stick(position) {
+function Stick(position, onShoot) {
    
-    this.position = position
-    this.origin = STICK_ORIGIN.copy()
+    this.position = position;
     this.rotation = 0;
+    this.origin = STICK_ORIGIN.copy()
     this.power = 0;
+    this.onShoot = onShoot;
 }
 
 Stick.prototype.update = function () {
@@ -14,8 +16,11 @@ Stick.prototype.update = function () {
 
     if (Mouse.left.down){
         this.increasePower();
-    } else {
-        this.origin = STICK_ORIGIN.copy()
+
+ 
+    } else if (this.power > 0){
+        // this.origin = STICK_ORIGIN.copy()
+        this.shoot()
     }
 
 };
@@ -35,6 +40,16 @@ Stick.prototype.updateRotation = function () {
 Stick.prototype.increasePower = function(){
     this.power += 100;
     this.origin.x += 5;
+
+    // if (this.origin.x >= STICK_ORIGIN + 100){
+    //     this.origin.x = STICK_ORIGIN
+    // }
+}
+
+Stick.prototype.shoot = function(){
+    this.onShoot(this.power, this.rotation)
+    this.power = 0;
+    this.origin = STICK_SHOT_ORIGIN.copy();
 }
 
 
