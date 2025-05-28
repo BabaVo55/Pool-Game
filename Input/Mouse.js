@@ -47,9 +47,14 @@ function MouseHandler(){
     
     this.position = new Vector2();
     
-    document.onmousemove = handleMouseMove;
-    document.onmousedown = handleMouseDown;
-    document.onmouseup = handleMouseUp;
+    // document.onmousemove = handleMouseMove;
+    // document.onmousedown = handleMouseDown;
+    // document.onmouseup = handleMouseUp;
+    
+    document.addEventListener('mousemove', handleMouseMove);
+    document.addEventListener('mousedown', handleMouseDown);
+    document.addEventListener('mouseup', handleMouseUp);
+
 }
 
 MouseHandler.prototype.reset = function(){

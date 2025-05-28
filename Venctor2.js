@@ -1,3 +1,4 @@
+// Governs position
 function Vector2(x = 0, y = 0){
 
     // this.x = typeof x !== 'undefined' ? x : 0;
