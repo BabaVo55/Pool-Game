@@ -14,7 +14,9 @@ Stick.prototype.update = function () {
 
     if (Mouse.left.down){
         this.increasePower();
-    } 
+    } else {
+        this.origin = STICK_ORIGIN.copy()
+    }
 
 };
 
@@ -34,6 +36,7 @@ Stick.prototype.increasePower = function(){
     this.power += 100;
     this.origin.x += 5;
 }
+
 
 
 
