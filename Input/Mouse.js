@@ -6,7 +6,8 @@ function handleMouseMove(evt){
 }
 
 function handleMouseDown(evt){
-    
+    //when you add this, i automatically changes the NORMAL function into a CONSTRUCTOR function.
+    // this.test = test
      handleMouseMove(evt);
 
      if (evt.which === 1){
