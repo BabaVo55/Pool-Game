@@ -23,31 +23,25 @@
 const STICK_ORIGIN = new Vector2(970, 11)
 // Below the logic is governed 
 function Stick(position) {
-    // this.position = { x: 0, y: 400 };
+   
     this.position = position
-    // this.position = new Vector2(400, 400)
-    // this.origin = new Vector2(500, 10)
-    this.direction = 1; // 1 for right, -1 for left
+    this.origin = STICK_ORIGIN.copy()
     this.rotation = 0;
+    this.power = 0;
 }
 
 Stick.prototype.update = function () {
-    // this.position = Mouse.position
-    // if (Mouse.left.pressed) console.log('Pressed L')
-    
-    // this.position.x += this.direction;
-
-    // Change direction at bounds
-    // if (this.position.x >= ballsVector + 100) {
-    //     this.direction *= -1; // Flip direction
-    // }
 
     this.updateRotation();
+
+    if (Mouse.left.down){
+        this.increasePower();
+    } 
 
 };
 
 Stick.prototype.draw = function () {
-    Canvas.drawImage(sprites.stick, this.position, /*this.origin*/ STICK_ORIGIN, this.rotation);
+    Canvas.drawImage(sprites.stick, this.position, this.origin, this.rotation);
 };
 
 Stick.prototype.updateRotation = function () {
@@ -56,10 +50,12 @@ Stick.prototype.updateRotation = function () {
 
     this.rotation = Math.atan2(opposite, adjacent);
 
-
-
 }
 
+Stick.prototype.increasePower = function(){
+    this.power += 100;
+    this.origin.x += 5;
+}
 
 // class Stick {
 //     constructor(){
