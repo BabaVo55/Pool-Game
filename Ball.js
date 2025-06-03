@@ -10,9 +10,11 @@ function Ball(position) {
 // })
 }
 
-Ball.prototype.update = function(){
+Ball.prototype.update = function(delta){
     // this.position += this.velocity;
-    this.position.addTo(this.velocity);
+    this.position.addTo(this.velocity.mult(delta));
+
+    this.velocity = this.velocity.mult(0.98)
 }
 
 Ball.prototype.draw = function(){
@@ -20,7 +22,7 @@ Ball.prototype.draw = function(){
 }
 
 Ball.prototype.shoot = function (power, rotation){
-    this.velocity = new Vector2(Math.cos(rotation), Math.sin(rotation));
+    this.velocity = new Vector2(power * Math.cos(rotation),power * Math.sin(rotation));
 }
 
 // document.addEventListener('mousemove', (e) => {

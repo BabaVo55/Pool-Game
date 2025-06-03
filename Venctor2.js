@@ -14,3 +14,7 @@ function Vector2(x = 0, y = 0){
     this.x += vector.x;
     this.y += vector.y;
  }
+
+ Vector2.prototype.mult = function(scaler){
+    return new Vector2(this.x * scaler, this.y * scaler)
+ }
