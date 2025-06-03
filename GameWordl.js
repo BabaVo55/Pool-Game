@@ -3,7 +3,7 @@ function GameWorld(){
     this.whiteBall = new Ball(new Vector2(413, 413))
     this.stick = new Stick(
         new Vector2(413, 413),
-        this.whiteBall.shoot).bind(this.whiteBall)
+        this.whiteBall.shoot.bind(this.whiteBall))
 }
 
 GameWorld.prototype.updated = function() {
