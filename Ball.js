@@ -2,6 +2,7 @@ const BALL_ORIGIN = new Vector2(25, 25);
 
 function Ball(position) {
     this.position = position;
+    this.velocity = new Vector2()
     // Wow it really did just work like that
     // addEventListener('mousemove', (e) => {
     // this.position.x = e.pageX
@@ -18,7 +19,7 @@ Ball.prototype.draw = function(){
 }
 
 Ball.prototype.shoot = function (power, rotation){
-    console.log('shot')
+    this.velocity = new Vector2(Math.cos(rotation), Math.sin(rotation));
 }
 
 // document.addEventListener('mousemove', (e) => {

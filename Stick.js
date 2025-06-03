@@ -38,8 +38,10 @@ Stick.prototype.updateRotation = function () {
 }
 
 Stick.prototype.increasePower = function(){
+    console.log(this.power)
     this.power += 100;
     this.origin.x += 5;
+    // console.log(this.power)
 
     // if (this.origin.x >= STICK_ORIGIN + 100){
     //     this.origin.x = STICK_ORIGIN
@@ -51,7 +53,6 @@ Stick.prototype.shoot = function(){
     this.power = 0;
     this.origin = STICK_SHOT_ORIGIN.copy();
 }
-
 
 
 
