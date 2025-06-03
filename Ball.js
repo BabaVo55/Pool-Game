@@ -11,7 +11,7 @@ function Ball(position) {
 }
 
 Ball.prototype.update = function(){
-    this.position += this.velocity;
+    // this.position += this.velocity;
     this.position.addTo(this.velocity);
 }
 
