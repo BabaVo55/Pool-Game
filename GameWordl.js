@@ -10,7 +10,7 @@ function GameWorld(){
 
 GameWorld.prototype.updated = function() {
     this.stick.update();
-    this.whiteBall.update();
+    this.whiteBall.update(DELTA);
 }
 
 GameWorld.prototype.draw = function() {
